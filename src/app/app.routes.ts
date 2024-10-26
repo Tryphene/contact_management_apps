@@ -1,7 +1,14 @@
 import { Routes } from '@angular/router';
+import { HomeComponent } from './pages/home/home.component';
+import { ListeComponent } from './pages/liste/liste.component';
 
-export const routes: Routes = [];
-// 
-// ng add @ngrx/effects@latest
-// ng add @ngrx/store-devtools@latest
-// ng add @ngrx/entity@lates
+export const routes: Routes = [
+    {
+        path: "",
+        component: HomeComponent
+    },
+    {
+        path: "mes-contacts",
+        component: ListeComponent
+    }
+];

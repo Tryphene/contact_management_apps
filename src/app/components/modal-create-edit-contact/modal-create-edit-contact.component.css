@@ -1,0 +1,19 @@
+.container {
+    margin-bottom: 20px;
+}
+
+input {
+    border: 1px solid #e4e4e4;
+    border-radius: 5px;
+    padding: 13px 20px;
+    width: 100%;
+    outline: none;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-left: 5px;
+    font-weight: 500;
+    margin-top: 5px;
+}

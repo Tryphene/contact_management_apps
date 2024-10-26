@@ -1,0 +1,97 @@
+<app-modal-create-edit-contact
+  [visible]="visible"
+  [currentContact]="contactSelected"
+  (currentContactChange)="onContactUpdate($event)"
+  (closeDialog)="visible = $event"
+  [modalTitle]="titleModal"
+>
+</app-modal-create-edit-contact>
+<p-confirmDialog />
+<div class="content">
+  <div class="header">
+    <p class="title">Liste des contacts</p>
+    <p class="subtitle">Lorem ipsum dolor</p>
+  </div>
+  <div class="">
+    <p-table
+      #dt1
+      [globalFilterFields]="['nom', 'prenom', 'telephone']"
+      [value]="contacts"
+      [tableStyle]="{ 'min-width': '60rem' }"
+      styleClass="p-datatable-sm"
+      [paginator]="contacts.length > 0"
+      [rows]="10"
+      [rowsPerPageOptions]="[5, 10, 20]"
+    >
+      <ng-template pTemplate="caption">
+        <div class="caption">
+          <p></p>
+          <div class="action">
+            <p-button
+              label="Ajouter un contact"
+              icon="pi pi-plus"
+              (click)="onEdit()"
+            />
+            <div class="search">
+              <input
+                type="text"
+                (input)="onFilter($event)"
+                placeholder="Recherche"
+              />
+              <div class="icon">
+                <i class="pi pi-search" style="font-size: 0.9rem"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Nom</th>
+          <th>Prénom(s)</th>
+          <th>Numéro Téléphone</th>
+          <th>Email</th>
+          <th></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-product>
+        @if (loading) {
+        <p>loading....</p>
+        } @else {
+        <tr>
+          <td>{{ product.nom }}</td>
+          <td>{{ product.prenom }}</td>
+          <td>{{ product!.telephone }}</td>
+          <td>{{ product!.email }}</td>
+          <td>
+            <div class="action">
+              <p-button
+                icon="pi pi-pencil"
+                [rounded]="true"
+                [text]="true"
+                severity="primary"
+                (onClick)="onEdit(product)"
+              /><p-button
+                icon="pi pi-trash"
+                [rounded]="true"
+                [text]="true"
+                severity="danger"
+                (onClick)="confirm($event, product)"
+              />
+            </div>
+          </td>
+        </tr>
+        }
+      </ng-template>
+      <ng-template pTemplate="summary">
+        @if (contacts.length <= 0) {
+        <p style="text-align: center">Aucun contact enregistré</p>
+        } @else {
+        <div class="flex align-items-center justify-content-between">
+          In total there are {{ contacts ? contacts.length : 0 }} products.
+        </div>
+        }
+      </ng-template>
+    </p-table>
+  </div>
+</div>

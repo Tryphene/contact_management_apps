@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+/* Appliquer Montserrat comme police globale */
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Vous pouvez également définir des poids de police spécifiques pour les éléments */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    /* Exemple de poids */
+}
+
+p,
+a,
+span,
+div,
+button,
+input,
+textarea {
+    font-family: 'Montserrat', sans-serif;
+}
+body { margin: 0; }
