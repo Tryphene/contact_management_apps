@@ -7,12 +7,12 @@ import { InputIconModule } from 'primeng/inputicon';
 import { ModalCreateEditContactComponent } from '../../components/modal-create-edit-contact/modal-create-edit-contact.component';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-
+import { TooltipModule } from 'primeng/tooltip';
 
 @Component({
   selector: 'app-liste',
   standalone: true,
-  imports: [TableModule, RippleModule, ConfirmDialogModule, ButtonModule, IconFieldModule, InputIconModule, ModalCreateEditContactComponent],
+  imports: [TableModule, RippleModule, ConfirmDialogModule, TooltipModule, ButtonModule, IconFieldModule, InputIconModule, ModalCreateEditContactComponent],
   templateUrl: './liste.component.html',
   styleUrl: './liste.component.css',
   providers: [ConfirmationService, MessageService]

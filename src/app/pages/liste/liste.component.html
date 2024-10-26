@@ -69,12 +69,16 @@
                 icon="pi pi-pencil"
                 [rounded]="true"
                 [text]="true"
+                pTooltip="Modifier le contact"
+                tooltipPosition="bottom"
                 severity="primary"
                 (onClick)="onEdit(product)"
               /><p-button
                 icon="pi pi-trash"
                 [rounded]="true"
                 [text]="true"
+                pTooltip="Supprimer le contact"
+                tooltipPosition="bottom"
                 severity="danger"
                 (onClick)="confirm($event, product)"
               />
@@ -88,7 +92,8 @@
         <p style="text-align: center">Aucun contact enregistré</p>
         } @else {
         <div class="flex align-items-center justify-content-between">
-          In total there are {{ sortedContacts ? sortedContacts.length : 0 }} products.
+          In total there are
+          {{ sortedContacts ? sortedContacts.length : 0 }} products.
         </div>
         }
       </ng-template>
