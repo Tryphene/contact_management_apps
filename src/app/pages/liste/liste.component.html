@@ -16,10 +16,10 @@
     <p-table
       #dt1
       [globalFilterFields]="['nom', 'prenom', 'telephone']"
-      [value]="contacts"
+      [value]="sortedContacts"
       [tableStyle]="{ 'min-width': '60rem' }"
       styleClass="p-datatable-sm"
-      [paginator]="contacts.length > 0"
+      [paginator]="sortedContacts.length > 0"
       [rows]="10"
       [rowsPerPageOptions]="[5, 10, 20]"
     >
@@ -84,11 +84,11 @@
         }
       </ng-template>
       <ng-template pTemplate="summary">
-        @if (contacts.length <= 0) {
+        @if (sortedContacts.length <= 0) {
         <p style="text-align: center">Aucun contact enregistré</p>
         } @else {
         <div class="flex align-items-center justify-content-between">
-          In total there are {{ contacts ? contacts.length : 0 }} products.
+          In total there are {{ sortedContacts ? sortedContacts.length : 0 }} products.
         </div>
         }
       </ng-template>

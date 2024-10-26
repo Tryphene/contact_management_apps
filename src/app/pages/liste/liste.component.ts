@@ -1,11 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Stack } from '@mui/material';
 import { ButtonModule } from 'primeng/button';
 import { TableModule, Table } from 'primeng/table';
 import { RippleModule } from 'primeng/ripple';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
-import { InputTextModule } from 'primeng/inputtext';
 import { ModalCreateEditContactComponent } from '../../components/modal-create-edit-contact/modal-create-edit-contact.component';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
@@ -26,6 +24,7 @@ export class ListeComponent implements OnInit {
   @ViewChild('dt1') dt1: Table | undefined;
   loading: boolean = true;
   titleModal?: string;
+  sortedContacts: any[] = [];
 
   constructor(private confirmationService: ConfirmationService, private messageService: MessageService) { }
 
@@ -106,6 +105,7 @@ export class ListeComponent implements OnInit {
         email: 'hannah.anderson@example.com'
       }
     ];
+    this.sortedContacts = this.contacts.sort((a, b) => a.id - b.id);
     this.loading = false;
   }
 
@@ -152,6 +152,8 @@ export class ListeComponent implements OnInit {
       } else {
         this.contacts.push(updatedContact);
       }
+
+      this.sortedContacts = this.contacts.sort((a, b) => a.id - b.id);
     }
   }
 
