@@ -120,10 +120,8 @@ export class ListeComponent implements OnInit {
       rejectButtonStyleClass: "p-button-text",
       accept: () => {
         this.deleteContact(contact.id);
-        this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted' });
       },
       reject: () => {
-        this.messageService.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
       }
     });
   }
