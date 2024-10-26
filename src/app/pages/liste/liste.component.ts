@@ -105,7 +105,7 @@ export class ListeComponent implements OnInit {
         email: 'hannah.anderson@example.com'
       }
     ];
-    this.sortedContacts = this.contacts.sort((a, b) => a.id - b.id);
+    this.sortedContacts = this.contacts.sort((a, b) => b.id - a.id);
     this.loading = false;
   }
 
@@ -153,7 +153,7 @@ export class ListeComponent implements OnInit {
         this.contacts.push(updatedContact);
       }
 
-      this.sortedContacts = this.contacts.sort((a, b) => a.id - b.id);
+      this.sortedContacts = this.contacts.sort((a, b) => b.id - a.id);
     }
   }
 
